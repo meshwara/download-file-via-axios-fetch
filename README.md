@@ -1,14 +1,14 @@
 ---
-title: Vite Vue
-description: Example Vite app that is configured with Vue 3
+title: Download file using Axios and Fetch
+description: Example app for downloading file using axios and fetch
 tags:
   - vite
   - vue
 ---
 
 
-# Vite + Vue 3 + Typescript Example
-This example utilises vite for static site generation
+# Download file using Axios and Fetch
+Example app for downloading file using axios and fetch
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/ymiqGQ?referralCode=OH27A5)
 

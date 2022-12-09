@@ -25,14 +25,16 @@ import axios from "axios"
 import { ref } from "vue";
 
 const URL_API = import.meta.env.VITE_URL_API;
+const AUTH = "xDMHorSbsrvcBlWVAKvO"
 const lastError = ref("")
 
-const downloadFileAxios = async (path) => {
+const downloadFileAxios = async (flag) => {
     try {
         lastError.value = ""
         var dt = await axios({
-            url: `${URL_API}/file/${path}`,
+            url: `${URL_API}/file`,
             method: 'GET',
+            headers : {"Authorization": flag == "success" ? "xDMHorSbsrvcBlWVAKvO" : ""},
             // isi respone type dengan array buffer karene respone bisa file/blob atau json
             responseType: 'arraybuffer',
             transformResponse: (data, _, status) => {
@@ -51,11 +53,14 @@ const downloadFileAxios = async (path) => {
     }
 }
 
-const downloadFileFetch = async (path) => {
+const downloadFileFetch = async (flag) => {
     try {
         lastError.value = ""
         var blob = null
-        var response = await fetch(`${URL_API}/file/${path}`)
+        var response = await fetch(`${URL_API}/file`,{
+            method: "GET",
+            headers : {"Authorization": flag == "success" ? "xDMHorSbsrvcBlWVAKvO" : ""},
+        })
 
         if (response.ok) {
             blob = await response.blob()
